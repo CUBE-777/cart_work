@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns:c2pa="http://c2pa.org/manifest"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1960 1560"
+	 style="enable-background:new 0 0 1960 1560;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#A1_top_right_1_);}
+	.st1{fill:url(#A1_top_bar_1_);}
+	.st2{fill:url(#A1_top_left_1_);}
+	.st3{fill:url(#A2_left_right_1_);}
+	.st4{fill:url(#A2_left_bar_1_);}
+	.st5{fill:url(#A2_left_left_1_);}
+	.st6{fill:url(#A3_right_right_1_);}
+	.st7{fill:url(#A3_right_bar_1_);}
+	.st8{fill:url(#A3_right_left_1_);}
+</style>
+<g id="A1_top">
+	
+		<linearGradient id="A1_top_right_1_" gradientUnits="userSpaceOnUse" x1="680.6605" y1="1199.6628" x2="681.0007" y2="1199.3225" gradientTransform="matrix(512 0 0 -692 -347614 830729.6875)">
+		<stop  offset="0" style="stop-color:#8F86C0"/>
+		<stop  offset="0.45" style="stop-color:#5A3FB8"/>
+		<stop  offset="1" style="stop-color:#2A1470"/>
+	</linearGradient>
+	<path id="A1_top_right" class="st0" d="M928.1,546L1071,781.5h-81.7l-92.6-153.8L928.1,546z"/>
+	
+		<linearGradient id="A1_top_bar_1_" gradientUnits="userSpaceOnUse" x1="680.6277" y1="1203.557" x2="680.6277" y2="1203.2168" gradientTransform="matrix(392 0 0 -64 -265878 77766.9453)">
+		<stop  offset="0" style="stop-color:#9A6BFF"/>
+		<stop  offset="1" style="stop-color:#4A1FB5"/>
+	</linearGradient>
+	<path id="A1_top_bar" class="st1" d="M872.3,739.3h111.6l10.9,21.8H861.4L872.3,739.3z"/>
+	
+		<linearGradient id="A1_top_left_1_" gradientUnits="userSpaceOnUse" x1="681.1051" y1="1199.671" x2="681.4454" y2="1199.3308" gradientTransform="matrix(520 0 0 -692 -353398 830729.6875)">
+		<stop  offset="0" style="stop-color:#F2F0FA"/>
+		<stop  offset="0.35" style="stop-color:#B9B4D0"/>
+		<stop  offset="0.6" style="stop-color:#7D73B0"/>
+		<stop  offset="1" style="stop-color:#3D2A8C"/>
+	</linearGradient>
+	<path id="A1_top_left" class="st2" d="M928.1,546L785.1,781.5h81.7L962.1,625L928.1,546z"/>
+</g>
+<g id="A2_left">
+	
+		<linearGradient id="A2_left_right_1_" gradientUnits="userSpaceOnUse" x1="681.4335" y1="1200.5391" x2="681.7737" y2="1200.1989" gradientTransform="matrix(512 0 0 -692 -348086 831461.6875)">
+		<stop  offset="0" style="stop-color:#8F86C0"/>
+		<stop  offset="0.45" style="stop-color:#5A3FB8"/>
+		<stop  offset="1" style="stop-color:#2A1470"/>
+	</linearGradient>
+	<path id="A2_left_right" class="st3" d="M851.8,671.7l142.9,235.5h-81.7l-92.6-153.8L851.8,671.7z"/>
+	
+		<linearGradient id="A2_left_bar_1_" gradientUnits="userSpaceOnUse" x1="681.6373" y1="1213.0314" x2="681.6373" y2="1212.691" gradientTransform="matrix(392 0 0 -64 -266350 78498.9453)">
+		<stop  offset="0" style="stop-color:#9A6BFF"/>
+		<stop  offset="1" style="stop-color:#4A1FB5"/>
+	</linearGradient>
+	<path id="A2_left_bar" class="st4" d="M796,864.9h111.6l10.9,21.8H785.1L796,864.9z"/>
+	
+		<linearGradient id="A2_left_left_1_" gradientUnits="userSpaceOnUse" x1="681.8662" y1="1200.5472" x2="682.2065" y2="1200.207" gradientTransform="matrix(520 0 0 -692 -353870 831461.6875)">
+		<stop  offset="0" style="stop-color:#F2F0FA"/>
+		<stop  offset="0.35" style="stop-color:#B9B4D0"/>
+		<stop  offset="0.6" style="stop-color:#7D73B0"/>
+		<stop  offset="1" style="stop-color:#3D2A8C"/>
+	</linearGradient>
+	<path id="A2_left_left" class="st5" d="M851.8,671.7L708.9,907.1h81.7l95.3-156.5L851.8,671.7z"/>
+</g>
+<g id="A3_right">
+	
+		<linearGradient id="A3_right_right_1_" gradientUnits="userSpaceOnUse" x1="679.8875" y1="1200.5391" x2="680.2277" y2="1200.1989" gradientTransform="matrix(512 0 0 -692 -347142 831461.6875)">
+		<stop  offset="0" style="stop-color:#8F86C0"/>
+		<stop  offset="0.45" style="stop-color:#5A3FB8"/>
+		<stop  offset="1" style="stop-color:#2A1470"/>
+	</linearGradient>
+	<path id="A3_right_right" class="st6" d="M1004.3,671.7l142.9,235.5h-81.7L973,753.3L1004.3,671.7z"/>
+	
+		<linearGradient id="A3_right_bar_1_" gradientUnits="userSpaceOnUse" x1="679.618" y1="1213.0314" x2="679.618" y2="1212.691" gradientTransform="matrix(392 0 0 -64 -265406 78498.9453)">
+		<stop  offset="0" style="stop-color:#9A6BFF"/>
+		<stop  offset="1" style="stop-color:#4A1FB5"/>
+	</linearGradient>
+	<path id="A3_right_bar" class="st7" d="M948.5,864.9h111.6l10.9,21.8H937.6L948.5,864.9z"/>
+	
+		<linearGradient id="A3_right_left_1_" gradientUnits="userSpaceOnUse" x1="680.344" y1="1200.5472" x2="680.6842" y2="1200.207" gradientTransform="matrix(520 0 0 -692 -352926 831461.6875)">
+		<stop  offset="0" style="stop-color:#F2F0FA"/>
+		<stop  offset="0.35" style="stop-color:#B9B4D0"/>
+		<stop  offset="0.6" style="stop-color:#7D73B0"/>
+		<stop  offset="1" style="stop-color:#3D2A8C"/>
+	</linearGradient>
+	<path id="A3_right_left" class="st8" d="M1004.3,671.7L861.4,907.1H943l95.3-156.5L1004.3,671.7z"/>
+</g>
+</svg>

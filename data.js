@@ -91,80 +91,104 @@ const TRIPLE_A = {
 
   // Three pillars. "art" picks the SVG drawn in script.js.
   pillars: [
-    { id: "design", n: "01", service: "Design",
+    {
+      id: "design", n: "01", service: "Design",
       name: { ar: "التصميم", fr: "DESIGN", en: "DESIGN" },
       tag: { ar: "علامتك. حِرفتنا.", fr: "Votre marque. Notre savoir-faire.", en: "Your brand. Our craft." },
       items: {
         en: ["Logo Design", "Branding", "Social Media Design", "Posters", "Motion Design", "Visual Identity"],
         ar: ["تصميم الشعارات", "العلامة التجارية", "تصاميم السوشيال ميديا", "البوسترات", "موشن جرافيك", "الهوية البصرية"],
         fr: ["Création de logo", "Branding", "Design réseaux sociaux", "Affiches", "Motion design", "Identité visuelle"]
-      } },
-    { id: "print", n: "02", service: "Printing",
+      }
+    },
+    {
+      id: "print", n: "02", service: "Printing",
       name: { ar: "الطباعة", fr: "PRINT", en: "PRINT" },
       tag: { ar: "تصميم لا يبقى حبيس الشاشة.", fr: "Un design qui ne reste pas sur l'écran.", en: "Design that doesn't stay on screen." },
       items: {
         en: ["Business Cards", "Stickers", "Flyers", "Certificates", "Badges", "Invitations", "Thank-you Cards", "Menus", "Labels"],
         ar: ["بطاقات العمل", "ستيكرات", "فلايرز", "شهادات", "بادجات", "دعوات", "بطاقات شكر", "قوائم الطعام", "لصاقات"],
         fr: ["Cartes de visite", "Stickers", "Flyers", "Certificats", "Badges", "Invitations", "Cartes de remerciement", "Menus", "Étiquettes"]
-      } },
-    { id: "digital", n: "03", service: "Digital",
+      }
+    },
+    {
+      id: "digital", n: "03", service: "Digital",
       name: { ar: "الرقمي", fr: "DIGITAL", en: "DIGITAL" },
       tag: { ar: "مبني ليُستخدم، لا ليُشاهَد فقط.", fr: "Conçu pour servir, pas seulement pour être vu.", en: "Built to be used, not just viewed." },
       items: {
         en: ["Websites", "Landing Pages", "Digital Menus", "QR Solutions", "Interactive Experiences"],
         ar: ["مواقع إلكترونية", "صفحات هبوط", "منيو رقمي", "حلول QR", "تجارب تفاعلية"],
         fr: ["Sites web", "Landing pages", "Menus digitaux", "Solutions QR", "Expériences interactives"]
-      } }
+      }
+    }
   ],
 
   // "from": "" hides the price line. Set e.g. "150" to show "From 150 MAD".
   products: [
-    { id: "cards", mock: "card", span: 4, service: "Printing", from: "",
+    {
+      id: "cards", mock: "card", span: 4, service: "Printing", from: "",
       name: { ar: "بطاقات العمل", fr: "Cartes de visite", en: "Business Cards" },
-      desc: { ar: "ورق ثقيل وحواف دقيقة وانطباع أول لا يُنسى.", fr: "Papier épais, finitions nettes, une première impression qui reste.", en: "Heavy stock, sharp edges, a first impression that sticks." } },
-    { id: "stickers", mock: "sticker", span: 2, service: "Printing", from: "",
+      desc: { ar: "ورق ثقيل وحواف دقيقة وانطباع أول لا يُنسى.", fr: "Papier épais, finitions nettes, une première impression qui reste.", en: "Heavy stock, sharp edges, a first impression that sticks." }
+    },
+    {
+      id: "stickers", mock: "sticker", span: 2, service: "Printing", from: "",
       name: { ar: "ستيكرات", fr: "Stickers", en: "Stickers" },
-      desc: { ar: "قصّ حسب الشكل، لامع أو مطفي، جاهز للّصق في كل مكان.", fr: "Découpe sur mesure, brillant ou mat. Faits pour se coller partout.", en: "Die-cut, glossy or matte. Made to be stuck on everything." } },
-    { id: "flyers", mock: "flyer", span: 2, service: "Printing", from: "",
+      desc: { ar: "قصّ حسب الشكل، لامع أو مطفي، جاهز للّصق في كل مكان.", fr: "Découpe sur mesure, brillant ou mat. Faits pour se coller partout.", en: "Die-cut, glossy or matte. Made to be stuck on everything." }
+    },
+    {
+      id: "flyers", mock: "flyer", span: 2, service: "Printing", from: "",
       name: { ar: "فلايرز", fr: "Flyers", en: "Flyers" },
-      desc: { ar: "رسالة واضحة وتصميم لافت وجاهز للتوزيع.", fr: "Message clair, mise en page percutante, prêt à distribuer.", en: "Clear message, loud layout, ready to hand out." } },
-    { id: "certs", mock: "cert", span: 4, service: "Printing", from: "",
+      desc: { ar: "رسالة واضحة وتصميم لافت وجاهز للتوزيع.", fr: "Message clair, mise en page percutante, prêt à distribuer.", en: "Clear message, loud layout, ready to hand out." }
+    },
+    {
+      id: "certs", mock: "cert", span: 4, service: "Printing", from: "",
       name: { ar: "شهادات", fr: "Certificats", en: "Certificates" },
-      desc: { ar: "شهادات وتكريمات تستحق أن تُحفظ.", fr: "Des certificats qui méritent d'être gardés.", en: "Awards and diplomas that look worth keeping." } },
-    { id: "badges", mock: "badge", span: 3, service: "Printing", from: "",
+      desc: { ar: "شهادات وتكريمات تستحق أن تُحفظ.", fr: "Des certificats qui méritent d'être gardés.", en: "Awards and diplomas that look worth keeping." }
+    },
+    {
+      id: "badges", mock: "badge", span: 3, service: "Printing", from: "",
       name: { ar: "بادجات", fr: "Badges", en: "Badges" },
-      desc: { ar: "بادجات للفعاليات والفرق، تصميم وطباعة في مكان واحد.", fr: "Badges d'événement et d'équipe, conçus et imprimés ensemble.", en: "Event and staff badges, designed and printed together." } },
-    { id: "thanks", mock: "thanks", span: 3, service: "Printing", from: "",
+      desc: { ar: "بادجات للفعاليات والفرق، تصميم وطباعة في مكان واحد.", fr: "Badges d'événement et d'équipe, conçus et imprimés ensemble.", en: "Event and staff badges, designed and printed together." }
+    },
+    {
+      id: "thanks", mock: "thanks", span: 3, service: "Printing", from: "",
       name: { ar: "بطاقات الشكر", fr: "Cartes de remerciement", en: "Thank-you Cards" },
-      desc: { ar: "بطاقة صغيرة تعيد الزبون إليك.", fr: "Une petite carte qui fait revenir les clients.", en: "A small card that brings customers back." } }
+      desc: { ar: "بطاقة صغيرة تعيد الزبون إليك.", fr: "Une petite carte qui fait revenir les clients.", en: "A small card that brings customers back." }
+    }
   ],
 
   // Prices left empty on purpose (not provided). Fill "from" to show them.
   packages: [
-    { id: "starter", from: "", pop: false,
+    {
+      id: "starter", from: "", pop: false,
       name: { ar: "STARTER", fr: "STARTER", en: "STARTER" },
       desc: { ar: "بداية بسيطة ومتينة.", fr: "Un départ simple et solide.", en: "A simple, solid start." },
       items: {
         en: ["Business Card Design", "1000 Business Cards", "QR Code"],
         ar: ["تصميم بطاقة العمل", "1000 بطاقة عمل مطبوعة", "كود QR"],
         fr: ["Design de carte de visite", "1000 cartes de visite", "QR code"]
-      } },
-    { id: "business", from: "", pop: true,
+      }
+    },
+    {
+      id: "business", from: "", pop: true,
       name: { ar: "BUSINESS", fr: "BUSINESS", en: "BUSINESS" },
       desc: { ar: "كل ما يحتاجه نشاطك ليبدو احترافياً.", fr: "Tout pour que votre activité soit professionnelle.", en: "Everything a growing business needs to look professional." },
       items: {
         en: ["Professional Design", "1000 Business Cards", "QR Code", "Stickers", "Social Media Assets"],
         ar: ["تصميم احترافي", "1000 بطاقة عمل", "كود QR", "ستيكرات", "تصاميم سوشيال ميديا"],
         fr: ["Design professionnel", "1000 cartes de visite", "QR code", "Stickers", "Visuels réseaux sociaux"]
-      } },
-    { id: "brand", from: "", pop: false,
+      }
+    },
+    {
+      id: "brand", from: "", pop: false,
       name: { ar: "BRAND", fr: "BRAND", en: "BRAND" },
       desc: { ar: "هوية متكاملة، من الشعار حتى الإطلاق.", fr: "Une identité complète, du logo au lancement.", en: "A complete identity, from logo to launch." },
       items: {
         en: ["Logo", "Brand Identity", "Business Cards", "Stickers", "Social Media", "Digital Presence"],
         ar: ["شعار", "هوية بصرية", "بطاقات عمل", "ستيكرات", "سوشيال ميديا", "حضور رقمي"],
         fr: ["Logo", "Identité de marque", "Cartes de visite", "Stickers", "Réseaux sociaux", "Présence digitale"]
-      } }
+      }
+    }
   ],
 
   workFilters: [
@@ -178,36 +202,48 @@ const TRIPLE_A = {
   // PORTFOLIO. Placeholders on purpose: "image" is empty so a built-in mockup is drawn.
   // To use a real project: set image:"assets/work/xyz.webp" (and sample:false). Remove sample items you don't need.
   portfolio: [
-    { id: "identity", cat: "branding", mock: "card", sample: true, name: "TRIPLE A — BRAND IDENTITY", image: "", url: "",
+    {
+      id: "identity", cat: "branding", mock: "card", sample: true, name: "TRIPLE A — BRAND IDENTITY", image: "", url: "",
       type: { ar: "هوية بصرية", fr: "Branding", en: "Branding" },
       desc: { ar: "من الفكرة إلى الطباعة الفعلية.", fr: "Du concept à l'impression.", en: "From concept to physical print." },
       deliver: { en: ["Logo", "Business Card", "Sticker", "Poster", "Social Media"], ar: ["الشعار", "بطاقة العمل", "ستيكر", "بوستر", "سوشيال ميديا"], fr: ["Logo", "Carte de visite", "Sticker", "Affiche", "Réseaux sociaux"] },
-      kit: ["logo", "card", "sticker", "flyer", "social"] },
-    { id: "event", cat: "print", mock: "badge", sample: true, name: "EVENT KIT", image: "", url: "",
+      kit: ["logo", "card", "sticker", "flyer", "social"]
+    },
+    {
+      id: "event", cat: "print", mock: "badge", sample: true, name: "EVENT KIT", image: "", url: "",
       type: { ar: "طباعة", fr: "Print", en: "Print" },
       desc: { ar: "بادجات وشهادات وبطاقات شكر لفعالية واحدة.", fr: "Badges, certificats et cartes de remerciement pour un événement.", en: "Badges, certificates and thank-you cards for one event." },
       deliver: { en: ["Badges", "Certificates", "Thank-you Cards"], ar: ["بادجات", "شهادات", "بطاقات شكر"], fr: ["Badges", "Certificats", "Cartes de remerciement"] },
-      kit: ["badge", "cert", "thanks"] },
-    { id: "menu", cat: "print", mock: "flyer", sample: true, name: "CAFÉ MENU & LABELS", image: "", url: "",
+      kit: ["badge", "cert", "thanks"]
+    },
+    {
+      id: "menu", cat: "print", mock: "flyer", sample: true, name: "CAFÉ MENU & LABELS", image: "", url: "",
       type: { ar: "طباعة", fr: "Print", en: "Print" },
       desc: { ar: "قائمة طعام ولصاقات تتطابق مع العلامة.", fr: "Un menu et des étiquettes alignés sur la marque.", en: "A menu and labels that match the brand." },
       deliver: { en: ["Menu", "Labels", "Stickers"], ar: ["قائمة الطعام", "لصاقات", "ستيكرات"], fr: ["Menu", "Étiquettes", "Stickers"] },
-      kit: ["flyer", "sticker"] },
-    { id: "landing", cat: "digital", mock: "web", sample: true, name: "LANDING PAGE", image: "", url: "",
+      kit: ["flyer", "sticker"]
+    },
+    {
+      id: "landing", cat: "digital", mock: "web", sample: true, name: "LANDING PAGE", image: "", url: "",
       type: { ar: "رقمي", fr: "Digital", en: "Digital" },
       desc: { ar: "صفحة واحدة. هدف واحد. مبنية للتحويل.", fr: "Une page. Un objectif. Pensée pour convertir.", en: "One page. One goal. Built to convert." },
       deliver: { en: ["Design", "Development", "Mobile-first layout"], ar: ["التصميم", "البرمجة", "تصميم للجوال أولاً"], fr: ["Design", "Développement", "Mobile-first"] },
-      kit: ["web", "social"] },
-    { id: "qrmenu", cat: "digital", mock: "web", sample: true, name: "DIGITAL MENU + QR", image: "", url: "",
+      kit: ["web", "social"]
+    },
+    {
+      id: "qrmenu", cat: "digital", mock: "web", sample: true, name: "DIGITAL MENU + QR", image: "", url: "",
       type: { ar: "رقمي", fr: "Digital", en: "Digital" },
       desc: { ar: "امسح، تصفّح، اطلب. مع بطاقات الطاولات المطبوعة.", fr: "Scannez, parcourez, commandez. Cartes de table incluses.", en: "Scan, browse, order. Printed table cards included." },
       deliver: { en: ["Digital menu", "QR code", "Table cards"], ar: ["منيو رقمي", "كود QR", "بطاقات الطاولات"], fr: ["Menu digital", "QR code", "Cartes de table"] },
-      kit: ["web", "sticker", "flyer"] },
-    { id: "reveal", cat: "motion", mock: "motion", sample: true, name: "LOGO REVEAL", image: "", url: "",
+      kit: ["web", "sticker", "flyer"]
+    },
+    {
+      id: "reveal", cat: "motion", mock: "motion", sample: true, name: "LOGO REVEAL", image: "", url: "",
       type: { ar: "موشن", fr: "Motion", en: "Motion" },
       desc: { ar: "ظهور شعار في 6 ثوانٍ للسوشيال والفيديو.", fr: "Une animation de logo de 6 secondes pour les réseaux et la vidéo.", en: "A 6-second logo animation for social and video." },
       deliver: { en: ["Logo animation", "Social formats"], ar: ["أنيميشن الشعار", "مقاسات السوشيال"], fr: ["Animation du logo", "Formats réseaux"] },
-      kit: ["motion", "social"] }
+      kit: ["motion", "social"]
+    }
   ],
 
   why: [
@@ -226,12 +262,16 @@ const TRIPLE_A = {
   ],
 
   audiences: [
-    { id: "biz", service: "Branding", cta: { ar: "ابنِ علامتي", fr: "CRÉER MA MARQUE", en: "BUILD MY BRAND" },
+    {
+      id: "biz", service: "Branding", cta: { ar: "ابنِ علامتي", fr: "CRÉER MA MARQUE", en: "BUILD MY BRAND" },
       name: { ar: "للشركات والمشاريع", fr: "POUR LES ENTREPRISES", en: "FOR BUSINESSES" },
-      items: { en: ["Logo", "Business Cards", "Stickers", "Menus", "Social Media", "Website"], ar: ["شعار", "بطاقات عمل", "ستيكرات", "قوائم طعام", "سوشيال ميديا", "موقع إلكتروني"], fr: ["Logo", "Cartes de visite", "Stickers", "Menus", "Réseaux sociaux", "Site web"] } },
-    { id: "evt", service: "Printing", cta: { ar: "جهّز فعاليتي", fr: "PRÉPARER MON ÉVÉNEMENT", en: "PREPARE MY EVENT" },
+      items: { en: ["Logo", "Business Cards", "Stickers", "Menus", "Social Media", "Website"], ar: ["شعار", "بطاقات عمل", "ستيكرات", "قوائم طعام", "سوشيال ميديا", "موقع إلكتروني"], fr: ["Logo", "Cartes de visite", "Stickers", "Menus", "Réseaux sociaux", "Site web"] }
+    },
+    {
+      id: "evt", service: "Printing", cta: { ar: "جهّز فعاليتي", fr: "PRÉPARER MON ÉVÉNEMENT", en: "PREPARE MY EVENT" },
       name: { ar: "للفعاليات", fr: "POUR LES ÉVÉNEMENTS", en: "FOR EVENTS" },
-      items: { en: ["Badges", "Certificates", "Invitations", "Tickets", "Posters", "Thank-you Cards"], ar: ["بادجات", "شهادات", "دعوات", "تذاكر", "بوسترات", "بطاقات شكر"], fr: ["Badges", "Certificats", "Invitations", "Billets", "Affiches", "Cartes de remerciement"] } }
+      items: { en: ["Badges", "Certificates", "Invitations", "Tickets", "Posters", "Thank-you Cards"], ar: ["بادجات", "شهادات", "دعوات", "تذاكر", "بوسترات", "بطاقات شكر"], fr: ["Badges", "Certificats", "Invitations", "Billets", "Affiches", "Cartes de remerciement"] }
+    }
   ],
 
   // Real testimonials only. Empty = section stays hidden. Example item:
@@ -240,14 +280,14 @@ const TRIPLE_A = {
 
   // enabled:false hides a platform. Add one by appending an object.
   socials: [
-    { id: "instagram", label: "Instagram", color: '#e4405f', icon: '<path fill="url(#igg)" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.300-3.800a1.200 1.200 0 1 1 0 2.400 1.200 1.200 0 0 1 0-2.400z"/>', url: "https://instagram.com/", enabled: true },
-    { id: "facebook", label: "Facebook", color: '#1877f2', icon: '<path d="M13.500 22v-8.200h2.800l.5-3.300h-3.300V8.400c0-.9.4-1.700 1.800-1.700h1.600V3.800s-1.300-.2-2.500-.2c-2.600 0-4.200 1.500-4.200 4.300v2.600H7.400v3.300h2.800V22z"/>', url: "https://facebook.com/", enabled: true },
-    { id: "tiktok", label: "TikTok", color: '#25f4ee', icon: '<path fill="#fe2c55" transform="translate(.7 .7)" d="M16.600 3c.3 2.300 1.600 3.700 3.900 3.800v3.200c-1.300.1-2.500-.3-3.800-1.100v5.800c0 7.400-8 9.700-11.200 4.400-2-3.300-.8-8.500 4.600-8.700v3.400c-.4.100-.8.200-1.200.4-1.100.4-1.700 1.200-1.600 2.500.3 2.600 5.100 3.400 4.700-1.700V3z"/><path fill="#25f4ee" transform="translate(-.7 -.7)" d="M16.600 3c.3 2.300 1.600 3.700 3.900 3.800v3.200c-1.300.1-2.500-.3-3.800-1.100v5.800c0 7.400-8 9.700-11.200 4.400-2-3.300-.8-8.500 4.600-8.700v3.400c-.4.100-.8.200-1.200.4-1.100.4-1.700 1.200-1.600 2.500.3 2.600 5.100 3.400 4.700-1.700V3z"/><path fill="var(--t)" d="M16.600 3c.3 2.300 1.600 3.700 3.900 3.800v3.200c-1.300.1-2.500-.3-3.800-1.100v5.800c0 7.400-8 9.700-11.200 4.400-2-3.300-.8-8.500 4.600-8.700v3.400c-.4.100-.8.200-1.200.4-1.100.4-1.700 1.200-1.600 2.500.3 2.600 5.100 3.400 4.700-1.700V3z"/>', url: "https://tiktok.com/", enabled: true },
-    { id: "linkedin", label: "LinkedIn", color: '#0a66c2', icon: '<path d="M4.980 3.500a2.500 2.500 0 1 1 0 5 2.500 2.500 0 0 1 0-5zM3 9.500h4V21H3zM9.500 9.500h3.800v1.600h.1c.5-1 1.800-2 3.800-2 4 0 4.800 2.600 4.800 6V21h-4v-5.200c0-1.300 0-2.900-1.800-2.900s-2.100 1.400-2.100 2.800V21h-4z"/>', url: "https://linkedin.com/", enabled: true },
+    { id: "instagram", label: "Instagram", color: '#e4405f', icon: '<path fill="url(#igg)" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.300-3.800a1.200 1.200 0 1 1 0 2.400 1.200 1.200 0 0 1 0-2.400z"/>', url: "https://www.instagram.com/triple_a_code?stkn=Z2FpZ3kwOHp5YTF3", enabled: true },
+    { id: "facebook", label: "Facebook", color: '#1877f2', icon: '<path d="M13.500 22v-8.200h2.800l.5-3.300h-3.300V8.400c0-.9.4-1.700 1.800-1.700h1.600V3.800s-1.300-.2-2.500-.2c-2.600 0-4.200 1.500-4.200 4.300v2.600H7.400v3.300h2.800V22z"/>', url: "https://www.facebook.com/share/19qQS7XcLk/", enabled: true },
+    { id: "tiktok", label: "TikTok", color: '#25f4ee', icon: '<path fill="#fe2c55" transform="translate(.7 .7)" d="M16.600 3c.3 2.300 1.600 3.700 3.900 3.800v3.200c-1.300.1-2.500-.3-3.800-1.100v5.800c0 7.400-8 9.700-11.200 4.400-2-3.300-.8-8.500 4.600-8.700v3.400c-.4.100-.8.200-1.200.4-1.100.4-1.700 1.200-1.600 2.500.3 2.600 5.100 3.400 4.700-1.700V3z"/><path fill="#25f4ee" transform="translate(-.7 -.7)" d="M16.600 3c.3 2.300 1.600 3.700 3.900 3.800v3.200c-1.300.1-2.500-.3-3.800-1.100v5.800c0 7.400-8 9.700-11.200 4.400-2-3.300-.8-8.500 4.600-8.700v3.400c-.4.100-.8.200-1.200.4-1.100.4-1.700 1.200-1.600 2.500.3 2.600 5.100 3.400 4.700-1.700V3z"/><path fill="var(--t)" d="M16.600 3c.3 2.300 1.600 3.700 3.900 3.800v3.200c-1.300.1-2.500-.3-3.800-1.100v5.800c0 7.400-8 9.700-11.200 4.400-2-3.300-.8-8.500 4.600-8.700v3.400c-.4.100-.8.200-1.200.4-1.100.4-1.700 1.200-1.600 2.500.3 2.600 5.100 3.400 4.700-1.700V3z"/>', url: "tiktok.com/@triple_a_code", enabled: true },
+    { id: "linkedin", label: "LinkedIn", color: '#0a66c2', icon: '<path d="M4.980 3.500a2.500 2.500 0 1 1 0 5 2.500 2.500 0 0 1 0-5zM3 9.500h4V21H3zM9.500 9.500h3.800v1.600h.1c.5-1 1.800-2 3.800-2 4 0 4.800 2.600 4.800 6V21h-4v-5.200c0-1.300 0-2.900-1.800-2.900s-2.100 1.400-2.100 2.800V21h-4z"/>', url: "https://www.linkedin.com/in/abdennour-issalek-25809a418?utm_source=share_via&utm_content=profile&utm_medium=member_android", enabled: true },
     { id: "youtube", label: "YouTube", color: '#ff0000', icon: '<path d="M23.500 6.200a3 3 0 0 0-2.100-2.100C19.500 3.600 12 3.600 12 3.600s-7.500 0-9.400.5A3 3 0 0 0 .5 6.200C0 8.100 0 12 0 12s0 3.900.5 5.800a3 3 0 0 0 2.100 2.100c1.900.5 9.400.5 9.400.5s7.500 0 9.400-.5a3 3 0 0 0 2.100-2.100c.5-1.900.5-5.800.5-5.800s0-3.900-.5-5.800zM9.600 15.600V8.400l6.200 3.600z"/>', url: "https://youtube.com/", enabled: true },
-    { id: "whatsapp", label: "WhatsApp", color: '#25d366', icon: '<path d="M12 2a10 10 0 0 0-8.500 15.200L2 22l4.900-1.500A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.300 14.800l-.4-.2-2.500.8.8-2.400-.3-.4A8 8 0 0 1 12 4zM8.600 7.500c-.3 0-.6.2-.8.5-.6.800-.6 1.900.4 3.400 1.400 2.100 3.200 3.300 4.800 3.600.9.200 1.800-.4 2-1.200l.1-.5-1.800-.9-.7.800c-1-.4-1.800-1.200-2.300-2.100l.6-.7-.8-1.800z"/>', url: "https://wa.me/212600000000", enabled: true },
+    { id: "whatsapp", label: "WhatsApp", color: '#25d366', icon: '<path d="M12 2a10 10 0 0 0-8.500 15.200L2 22l4.900-1.500A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.300 14.800l-.4-.2-2.500.8.8-2.400-.3-.4A8 8 0 0 1 12 4zM8.600 7.500c-.3 0-.6.2-.8.5-.6.800-.6 1.900.4 3.400 1.400 2.100 3.200 3.300 4.800 3.600.9.200 1.800-.4 2-1.200l.1-.5-1.800-.9-.7.800c-1-.4-1.800-1.200-2.300-2.100l.6-.7-.8-1.800z"/>', url: "https://wa.me/212633740099", enabled: true },
     { id: "behance", label: "Behance", color: '#1769ff', icon: '<text x="12" y="16.500" text-anchor="middle" font-size="13" font-weight="700" font-family="Arial,sans-serif">Bē</text>', url: "https://behance.net/", enabled: false },
-    { id: "github", label: "GitHub", color: '#8957e5', icon: '<path d="M12 .3a12 12 0 0 0-3.800 23.400c.6.1.8-.3.8-.6v-2c-3.300.7-4-1.600-4-1.600-.6-1.400-1.400-1.800-1.400-1.800-1-.7.100-.7.100-.7 1.200.1 1.800 1.200 1.800 1.200 1 1.800 2.800 1.300 3.500 1 .1-.8.4-1.300.7-1.600-2.700-.3-5.500-1.300-5.500-5.900 0-1.300.5-2.400 1.200-3.200-.1-.3-.5-1.500.1-3.200 0 0 1-.3 3.300 1.200a11.500 11.500 0 0 1 6 0c2.300-1.500 3.300-1.200 3.300-1.200.6 1.700.2 2.900.1 3.200.8.800 1.200 1.900 1.200 3.200 0 4.600-2.800 5.600-5.500 5.900.4.400.8 1.100.8 2.200v3.300c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/>', url: "https://github.com/", enabled: false },
+    { id: "github", label: "GitHub", color: '#8957e5', icon: '<path d="M12 .3a12 12 0 0 0-3.800 23.400c.6.1.8-.3.8-.6v-2c-3.300.7-4-1.600-4-1.600-.6-1.400-1.400-1.800-1.400-1.800-1-.7.100-.7.100-.7 1.200.1 1.800 1.200 1.800 1.200 1 1.800 2.800 1.300 3.500 1 .1-.8.4-1.300.7-1.600-2.700-.3-5.500-1.300-5.500-5.900 0-1.300.5-2.400 1.200-3.200-.1-.3-.5-1.500.1-3.200 0 0 1-.3 3.300 1.200a11.500 11.500 0 0 1 6 0c2.300-1.500 3.300-1.200 3.300-1.200.6 1.700.2 2.900.1 3.200.8.800 1.200 1.900 1.200 3.200 0 4.600-2.800 5.600-5.500 5.900.4.400.8 1.100.8 2.200v3.300c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/>', url: "https://github.com/CUBE-777", enabled: false },
     { id: "x", label: "X", color: '#1d9bf0', icon: '<path d="M18.900 1.200h3.700l-8 9.200L24 22.800h-7.400l-5.800-7.600-6.600 7.600H.5l8.600-9.800L0 1.200h7.600l5.200 6.900zm-1.300 19.500h2L6.500 3.200H4.300z"/>', url: "https://x.com/", enabled: false }
   ],
 };
