@@ -5,8 +5,8 @@ const TRIPLE_A = {
   brand: "TRIPLE A",
   logo: "logo.webp",          // hero / large
   logoSm: "logo-sm.webp",     // navbar / preloader
-  phone: "+212600000000",     // TODO: replace with the real number
-  whatsapp: "212600000000",   // TODO: international format, digits only
+  phone: "+21233740099",
+  whatsapp: "21233740099",   // international format, digits only
   whatsappMessage: { ar: "مرحبا Triple A، عندي مشروع", fr: "Bonjour Triple A, j'ai un projet", en: "Hello Triple A, I have a project" },
   email: "hello@triplea.example", // TODO: replace
   website: "https://triple-a-a-a.netlify.app",
