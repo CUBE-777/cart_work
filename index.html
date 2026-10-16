@@ -4,21 +4,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>TRIPLE A Studio — Design, Print &amp; Digital</title>
+  <title>Triple A — Creative Digital Studio | Web Development, Graphic Design, Video Editing &amp; Digital Services</title>
   <meta name="description"
-    content="Triple A Studio is a creative studio for design, printing and digital: logos, branding, business cards, stickers, flyers, certificates, badges, websites and more — under one roof.">
+    content="Triple A is a creative digital studio: web development, graphic design, video editing and digital services — all under one roof.">
   <meta name="theme-color" content="#0a0712">
   <link rel="canonical" href="https://triple-a-a-a.netlify.app/">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="TRIPLE A Studio">
-  <meta property="og:title" content="TRIPLE A Studio — Design, Print &amp; Digital">
+  <meta property="og:site_name" content="Triple A — Creative Digital Studio">
+  <meta property="og:locale" content="ar_MA">
+  <meta property="og:title" content="Triple A — Creative Digital Studio | Web Development, Graphic Design, Video Editing &amp; Digital Services">
   <meta property="og:description"
-    content="We design. We print. We build. Creative design, professional printing and digital experiences — all under one roof.">
+    content="Triple A is a creative digital studio: web development, graphic design, video editing and digital services — all under one roof.">
   <meta property="og:url" content="https://triple-a-a-a.netlify.app/">
   <meta property="og:image" content="https://triple-a-a-a.netlify.app/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Triple A — Creative Digital Studio | Web Development, Graphic Design, Video Editing &amp; Digital Services">
+  <meta name="twitter:description"
+    content="Triple A is a creative digital studio: web development, graphic design, video editing and digital services — all under one roof.">
+  <meta name="twitter:image" content="https://triple-a-a-a.netlify.app/og-image.jpg">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,11 +32,10 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Unbounded:wght@500;700&display=swap">
   <link rel="preload" as="image" href="logo.webp" type="image/webp">
   <link rel="stylesheet" href="style.css">
-  <script
-    type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TRIPLE A Studio","slogan":"Design • Print • Digital","url":"https://triple-a-a-a.netlify.app/","logo":"https://triple-a-a-a.netlify.app/apple-touch-icon.png"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Triple A — Creative Digital Studio","alternateName":"Triple A","url":"https://triple-a-a-a.netlify.app/","logo":"https://triple-a-a-a.netlify.app/apple-touch-icon.png","email":"triple.a.code@gmail.com","telephone":"+212633740099","slogan":"Web Development · Graphic Design · Video Editing · Digital Services","sameAs":["https://www.instagram.com/triple_a_code","https://www.tiktok.com/@triple_a_code"],"contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"triple.a.code@gmail.com","telephone":"+212633740099","availableLanguage":["Arabic","French","English"]}}</script>
 </head>
 
-<body>
+<body data-page="home">
   <a class="skip" href="#top" data-t="ui.skip">Skip to content</a>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
@@ -46,14 +50,14 @@
   <div id="pre" aria-hidden="true"><img src="logo-sm.webp" alt="" width="96" height="75"></div>
 
   <header class="bar" id="bar">
-    <a href="#home" class="brand" aria-label="TRIPLE A — home"><img data-logo="sm" src="logo-sm.webp" alt="" width="40"
+    <a href="#home" class="brand" data-aria="aria.home" aria-label="Triple A — home"><img data-logo="sm" src="logo-sm.webp" alt="" width="40"
         height="31"><span>TRIPLE A</span></a>
-    <nav id="nav" aria-label="Main"></nav>
+    <nav id="nav" data-aria="aria.main" aria-label="Main"></nav>
     <div class="tools">
-      <div id="langs" role="group" aria-label="Language"></div>
-      <button id="theme" class="ic" type="button" aria-label="Toggle theme">◐</button>
+      <div id="langs" role="group" data-aria="aria.lang" aria-label="Language"></div>
+      <button id="theme" class="ic" type="button" data-aria="aria.theme" aria-label="Toggle theme">◐</button>
       <a class="btn pri sm bar-cta" href="#contact" data-t="btn.start" data-prefill>START A PROJECT</a>
-      <button id="menu" class="ic" type="button" aria-label="Menu" aria-controls="nav"
+      <button id="menu" class="ic" type="button" data-aria="aria.menu" aria-label="Menu" aria-controls="nav"
         aria-expanded="false"><span></span><span></span></button>
     </div>
   </header>
@@ -72,13 +76,13 @@
           <div class="acts">
             <a class="btn pri" href="#contact" data-t="btn.start" data-prefill>START A PROJECT</a>
             <a class="btn" href="#work" data-t="btn.explore">EXPLORE OUR WORK</a>
-            <a class="btn wa-btn" data-wa target="_blank" rel="noopener"><span data-ico="whatsapp"></span><span
+            <a class="btn wa-btn" data-wa target="_blank" rel="noopener noreferrer"><span data-ico="whatsapp"></span><span
                 data-t="btn.wa">WHATSAPP US</span></a>
           </div>
         </div>
         <div class="hero-vis" id="vis">
           <i class="ring r1"></i><i class="ring r2"></i>
-          <img data-logo="lg" src="logo.webp" alt="Triple A logo: three interlocking letter A shapes forming a triangle"
+          <img data-logo="lg" src="logo.webp" data-alt="aria.logo" alt="Triple A logo: three interlocking letter A shapes forming a triangle"
             width="490" height="385" fetchpriority="high">
         </div>
       </div>
@@ -125,8 +129,7 @@
           <h2 id="work-h" data-t="work.h">SELECTED WORK</h2>
           <p data-t="work.sub">We don't make one piece. We build the whole identity.</p>
         </header>
-        <div class="filters" id="filters" role="group" aria-label="Filter work"></div>
-        <div class="works" id="pf"></div>
+        <div id="pf-home" data-portfolio="home"></div>
       </div>
     </section>
 
@@ -186,7 +189,7 @@
         <p data-t="cta.sub">Have an idea, a brand or an event? Let's turn it into something real.</p>
         <div class="acts">
           <a class="btn pri lg" href="#contact" data-t="btn.start" data-prefill>START A PROJECT</a>
-          <a class="btn lg wa-btn" data-wa target="_blank" rel="noopener"><span data-ico="whatsapp"></span><span
+          <a class="btn lg wa-btn" data-wa target="_blank" rel="noopener noreferrer"><span data-ico="whatsapp"></span><span
               data-t="btn.wa">WHATSAPP US</span></a>
         </div>
       </div>
@@ -217,22 +220,22 @@
   <footer class="foot">
     <div class="wrap">
       <div class="foot-top">
-        <div><b class="fb">TRIPLE A STUDIO</b>
+        <div><b class="fb">Triple A — Creative Digital Studio</b>
           <p class="pos" data-t="hero.pos">DESIGN • PRINT • DIGITAL</p>
         </div>
-        <nav id="fnav" aria-label="Footer"></nav>
+        <nav id="fnav" data-aria="aria.foot" aria-label="Footer"></nav>
         <div class="soc" data-socials="instagram,whatsapp"></div>
       </div>
       <div class="foot-bot"><span data-t="foot.rights">© 2026 Triple A Studio</span><a id="f-email" href="#"></a></div>
     </div>
   </footer>
 
-  <dialog id="modal" aria-labelledby="m-title">
-    <div class="m-in" id="m-body"></div>
-  </dialog>
-  <a id="wa" class="fab" aria-label="WhatsApp" target="_blank" rel="noopener"></a>
+  <a id="wa" class="fab" data-aria="aria.wa" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"></a>
   <script src="data.js"></script>
   <script src="script.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="portfolio-remote.js"></script>
+  <script src="portfolio.js"></script>
 </body>
 
 </html>

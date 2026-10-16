@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- خريطة الموقع. بعد إضافة مشروع جديد أضف سطراً له بنفس الشكل (انسخ أحد الأسطر في الأسفل). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://triple-a-a-a.netlify.app/</loc></url>
+  <url><loc>https://triple-a-a-a.netlify.app/portfolio.html</loc></url>
+  <url><loc>https://triple-a-a-a.netlify.app/project.html?id=triple-a-business-card</loc></url>
+  <!-- مشاريعك: أزل علامات التعليق وعدّل id ليطابق المشروع
+  <url><loc>https://triple-a-a-a.netlify.app/project.html?id=project-name</loc></url>
+  -->
+</urlset>

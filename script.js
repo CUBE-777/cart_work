@@ -5,7 +5,7 @@ const store = (k, v) => { try { return v === undefined ? localStorage.getItem(k)
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 let lang = store("lang"); if (!D.language.available.includes(lang)) lang = D.language.default;
 let theme = store("theme") || D.theme.default;
-let filter = "all", first = true;
+let first = true;
 
 const L = o => typeof o === "string" ? o : (o && (o[lang] || o.en)) || "";   // {ar,fr,en} -> string
 const LA = o => (o && (o[lang] || o.en)) || [];                              // {ar:[],fr:[],en:[]} -> array
@@ -48,9 +48,12 @@ function render() {
   $$("[data-ico]").forEach(e => e.innerHTML = ico(e.dataset.ico, 20));
   $$("[data-logo=lg]").forEach(e => e.src = D.logo);
 
-  const links = [["work", "work"], ["services", "services"], ["about", "about"], ["contact", "contact"]];
-  $("#nav").innerHTML = links.map(([id, k]) => `<a href="#${id}">${T("nav." + k)}</a>`).join("");
-  $("#fnav").innerHTML = links.map(([id, k]) => `<a href="#${id}">${T("nav." + k)}</a>`).join("");
+  const links = [["#home", "home"], ["#services", "services"], ["portfolio.html", "portfolio"], ["#about", "about"], ["#contact", "contact"]];
+  $("#nav").innerHTML = links.map(([h, k]) => `<a href="${h}">${T("nav." + k)}</a>`).join("");
+  $("#fnav").innerHTML = links.map(([h, k]) => `<a href="${h}">${T("nav." + k)}</a>`).join("");
+  $$("[data-aria]").forEach(e => e.setAttribute("aria-label", T(e.dataset.aria)));
+  $$("[data-alt]").forEach(e => e.alt = T(e.dataset.alt));
+  syncSeo();
   $("#langs").innerHTML = D.language.available.map(l => `<button type="button" data-l="${l}" aria-pressed="${l === lang}">${{ ar: "عربي", fr: "FR", en: "EN" }[l]}</button>`).join("");
 
   $("#pillars").innerHTML = D.pillars.map((p, i) => `
@@ -81,9 +84,6 @@ function render() {
       <a class="btn ${p.pop ? "pri" : ""}" href="#contact" data-prefill data-service="${p.id === "brand" ? "Branding" : p.id === "business" ? "Printing" : "Printing"}" data-note="${esc(L(p.name))}">${T("btn.quote")}</a>
     </article>`).join("");
 
-  $("#filters").innerHTML = D.workFilters.map(f => `<button type="button" data-f="${f.id}" aria-pressed="${f.id === filter}">${L(f.t)}</button>`).join("");
-  renderWork();
-
   $("#why").innerHTML = D.why.map((w, i) => `<li class="rv" style="--d:${i * 70}ms"><span class="num">0${i + 1}</span><div><h3>${L(w.t)}</h3><p>${L(w.d)}</p></div></li>`).join("");
   $("#steps").innerHTML = D.how.map((s, i) => `<li style="--i:${i}"><span class="node"></span><span class="num">0${i + 1}</span><h3>${L(s.t)}</h3><p>${L(s.d)}</p></li>`).join("");
   $("#aud").innerHTML = D.audiences.map((a, i) => `
@@ -98,7 +98,7 @@ function render() {
     $("#quotes").innerHTML = D.testimonials.map(q => `<figure class="quote"><blockquote>${esc(L(q.text))}</blockquote><figcaption>${esc(q.name)}${q.role ? " — " + esc(L(q.role)) : ""}</figcaption></figure>`).join("");
   }
 
-  $("#con-acts").innerHTML = `<a class="btn pri wa-btn" data-wa target="_blank" rel="noopener">${ico("whatsapp", 20, "#fff")}<span>${T("btn.wa")}</span></a>
+  $("#con-acts").innerHTML = `<a class="btn pri wa-btn" data-wa target="_blank" rel="noopener noreferrer">${ico("whatsapp", 20, "#fff")}<span>${T("btn.wa")}</span></a>
     <a class="btn" href="tel:${D.phone}">${T("ui.call")}</a><a class="btn" href="mailto:${D.email}">${T("ui.email")}</a>
     <button type="button" class="btn" id="vc">${T("btn.save")}</button>`;
   $("#vc").onclick = vcard;
@@ -110,7 +110,7 @@ function render() {
   $$("[data-socials]").forEach(e => {
     const only = e.dataset.socials ? e.dataset.socials.split(",") : null;
     e.innerHTML = D.socials.filter(s => s.enabled && (!only || only.includes(s.id)))
-      .map(s => `<a href="${s.url}" target="_blank" rel="noopener" aria-label="${s.label}" title="${s.label}" style="--c:${s.color || "var(--a)"}"><svg viewBox="0 0 24 24" width="22" height="22" fill="${s.color}" aria-hidden="true">${s.icon}</svg></a>`).join("");
+      .map(s => `<a href="${s.url}" target="_blank" rel="noopener noreferrer" aria-label="${s.label}" title="${s.label}" style="--c:${s.color || "var(--a)"}"><svg viewBox="0 0 24 24" width="22" height="22" fill="${s.color}" aria-hidden="true">${s.icon}</svg></a>`).join("");
   });
   $$("[data-wa]").forEach(a => a.href = wa());
   const fab = $("#wa"); fab.href = wa(); fab.innerHTML = ico("whatsapp", 30, "#fff");
@@ -118,39 +118,12 @@ function render() {
 
   if (!first) $$(".rv").forEach(e => e.classList.add("on"));
   first = false; observe();
+  if (TA.ready) hooks.forEach(fn => fn());
 }
-
-function renderWork() {
-  const list = D.portfolio.filter(p => filter === "all" || p.cat === filter);
-  $("#pf").innerHTML = list.map((p, i) => `
-    <button type="button" class="work pop" style="--d:${i * 50}ms" data-id="${p.id}" aria-haspopup="dialog">
-      <span class="stage">${p.image ? `<img class="cover" src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" width="800" height="600">` : mock(p.mock)}${p.sample ? `<span class="chip">${T("tag.sample")}</span>` : ""}</span>
-      <span class="wmeta"><span class="cat">${L(p.type)}</span><strong>${esc(p.name)}</strong><span class="wd">${L(p.desc)}</span></span>
-    </button>`).join("");
-}
-
-/* ---------- Modal (native <dialog>: focus trap + Esc for free) ---------- */
-const modal = $("#modal");
-function openWork(id) {
-  const p = D.portfolio.find(x => x.id === id); if (!p) return;
-  const kit = p.image ? `<div class="stage big"><img class="cover" src="${esc(p.image)}" alt="${esc(p.name)}" width="800" height="600"></div>`
-    : `<div class="kit k${p.kit.length}">${p.kit.map(k => `<div class="stage">${mock(k)}</div>`).join("")}</div>`;
-  $("#m-body").innerHTML = `
-    <button type="button" class="x" data-close aria-label="${T("btn.close")}"><span></span><span></span></button>
-    <p class="cat">${L(p.type)}</p><h3 id="m-title">${esc(p.name)}</h3><p class="mlead">${L(p.desc)}</p>
-    ${kit}
-    <h4>${T("work.inside")}</h4>
-    <ul class="tl-list cols">${LA(p.deliver).map(x => `<li>${esc(x)}</li>`).join("")}</ul>
-    <div class="acts left"><a class="btn pri" href="#contact" data-prefill data-service="${p.cat === "digital" ? "Digital" : p.cat === "branding" ? "Branding" : "Printing"}" data-note="${esc(p.name)}">${T("btn.similar")}</a>
-    ${p.url ? `<a class="btn" href="${esc(p.url)}" target="_blank" rel="noopener">Visit</a>` : ""}</div>`;
-  modal.showModal(); document.body.classList.add("lock");
-}
-modal.addEventListener("close", () => document.body.classList.remove("lock"));
-modal.addEventListener("click", e => { if (e.target === modal || e.target.closest("[data-close]")) modal.close(); });
 
 /* ---------- Contact ---------- */
 function vcard() {
-  const v = `BEGIN:VCARD\nVERSION:3.0\nFN:TRIPLE A Studio\nORG:TRIPLE A Studio\nTEL;TYPE=CELL:${D.phone}\nEMAIL:${D.email}\nURL:${D.website}\nEND:VCARD`;
+  const v = `BEGIN:VCARD\nVERSION:3.0\nFN:${D.siteName}\nORG:${D.siteName}\nTEL;TYPE=CELL:${D.phone}\nEMAIL:${D.email}\nURL:${D.website}\nEND:VCARD`;
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([v], { type: "text/vcard" })); a.download = "triple-a.vcf"; a.click();
   setTimeout(() => URL.revokeObjectURL(a.href), 1000);
@@ -170,12 +143,12 @@ function valid() {
 form.addEventListener("submit", e => {
   e.preventDefault(); if (!valid()) return;
   status.textContent = T("f.ok"); status.className = "status ok";
-  const a = document.createElement("a"); a.href = wa(compose()); a.target = "_blank"; a.rel = "noopener";
+  const a = document.createElement("a"); a.href = wa(compose()); a.target = "_blank"; a.rel = "noopener noreferrer";
   document.body.append(a); a.click(); a.remove();
 });
 $("#f-mail").addEventListener("click", e => {
   if (!valid()) { e.preventDefault(); return; }
-  e.currentTarget.href = `mailto:${D.email}?subject=${encodeURIComponent("Project request — " + form.elements.service.value)}&body=${encodeURIComponent(compose())}`;
+  e.currentTarget.href = `mailto:${D.email}?subject=${encodeURIComponent(T("f.subject") + form.elements.service.value)}&body=${encodeURIComponent(compose())}`;
 });
 form.addEventListener("input", e => e.target.removeAttribute("aria-invalid"));
 
@@ -186,11 +159,8 @@ const observe = () => $$(".rv:not(.on),.steps:not(.on)").forEach(e => io.observe
 /* ---------- Events ---------- */
 document.addEventListener("click", e => {
   const l = e.target.closest("[data-l]"); if (l) { lang = l.dataset.l; store("lang", lang); render(); return; }
-  const f = e.target.closest("[data-f]"); if (f) { filter = f.dataset.f; $$("[data-f]").forEach(b => b.setAttribute("aria-pressed", String(b === f))); renderWork(); return; }
-  const w = e.target.closest(".work"); if (w) { openWork(w.dataset.id); return; }
   const p = e.target.closest("[data-prefill]");
   if (p) {
-    if (modal.open) modal.close();
     if (p.dataset.service) form.elements.service.value = p.dataset.service;
     if (p.dataset.note && !form.elements.msg.value.trim()) form.elements.msg.value = p.dataset.note + ": ";
     setTimeout(() => form.elements.name.focus({ preventScroll: true }), 700);
@@ -213,7 +183,7 @@ const spy = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
   $$("#nav a").forEach(a => a.toggleAttribute("aria-current", a.getAttribute("href") === "#" + e.target.id));
 }), { rootMargin: "-45% 0px -50% 0px" });
-["work", "services", "about", "contact"].forEach(id => spy.observe($("#" + id)));
+["home", "services", "about", "contact"].forEach(id => spy.observe($("#" + id)));
 
 // hero logo tilt (desktop pointer only)
 const vis = $("#vis");
@@ -229,8 +199,35 @@ if (!reduce && matchMedia("(hover:hover) and (pointer:fine)").matches) {
   vis.addEventListener("pointerleave", () => { vis.style.setProperty("--rx", "0deg"); vis.style.setProperty("--ry", "0deg"); });
 }
 
+
+/* ---------- API مشتركة مع portfolio.js (نفس نظام اللغات، بدون نظام ثانٍ) ---------- */
+const hooks = [];
+const TA = window.TA = {
+  D, $, $$, L, LA, T, esc, wa, ico, social,
+  get lang() { return lang; },
+  fmt: (k, v) => T(k).replace(/\{(\w+)\}/g, (_, n) => v[n] ?? ""),
+  ready: false,
+  onRender(fn) { hooks.push(fn); if (TA.ready) fn(); }
+};
+function syncSeo() {
+  const sx = D.seo && D.seo[document.body.dataset.page || "home"]; if (!sx) return;
+  document.title = L(sx.title);
+  [["meta[name=description]", "content"], ["meta[property='og:description']", "content"], ["meta[name='twitter:description']", "content"]].forEach(([q]) => { const m = $(q); if (m) m.content = L(sx.description); });
+  [["meta[property='og:title']"], ["meta[name='twitter:title']"]].forEach(([q]) => { const m = $(q); if (m) m.content = L(sx.title); });
+  const ol = $("meta[property='og:locale']"); if (ol) ol.content = { ar: "ar_MA", fr: "fr_FR", en: "en_US" }[lang];
+}
+TA.syncSeo = syncSeo;
+/* ملء نموذج التواصل عند القدوم من صفحة أخرى: index.html?service=Design&note=...#contact */
+function prefillFromUrl() {
+  const q = new URLSearchParams(location.search), sv = q.get("service"), nt = q.get("note");
+  if (sv && [...form.elements.service.options].some(o => o.value === sv)) form.elements.service.value = sv;
+  if (nt && !form.elements.msg.value.trim()) form.elements.msg.value = nt.slice(0, 200) + ": ";
+}
+
 if (!D.contactForm.enabled) form.remove();
 render();
+prefillFromUrl();
+TA.ready = true; hooks.forEach(fn => fn());
 const ready = () => { $("#pre").classList.add("off"); document.body.classList.add("ready"); };
 if (document.readyState === "complete") ready(); else addEventListener("load", ready);
 setTimeout(ready, 1400);
