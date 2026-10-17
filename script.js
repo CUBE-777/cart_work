@@ -14,6 +14,8 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;"
 const wa = msg => `https://wa.me/${D.whatsapp}?text=${encodeURIComponent(msg || L(D.whatsappMessage))}`;
 const social = id => D.socials.find(x => x.id === id);
 const ico = (id, n = 20, fill) => { const s = social(id); return s ? `<svg viewBox="0 0 24 24" width="${n}" height="${n}" fill="${fill || s.color}" aria-hidden="true">${s.icon}</svg>` : ""; };
+// رابط المتجر: يُستعمل فقط إن كان https صالحاً في data.js → storeUrl
+const storeUrl = /^https:\/\/[^\s"'<>]+$/i.test(D.storeUrl || "") ? D.storeUrl.trim() : "";
 const price = p => p.from ? `${esc(p.from)} ${esc(D.currency)}` : "";
 
 /* ---------- Mockups: pure CSS stand-ins until real photos exist ---------- */
@@ -48,10 +50,12 @@ function render() {
   $$("[data-ico]").forEach(e => e.innerHTML = ico(e.dataset.ico, 20));
   $$("[data-logo=lg]").forEach(e => e.src = D.logo);
 
-  const links = [["#home", "home"], ["#services", "services"], ["portfolio.html", "portfolio"], ["#about", "about"], ["#contact", "contact"]];
-  $("#nav").innerHTML = links.map(([h, k]) => `<a href="${h}">${T("nav." + k)}</a>`).join("");
-  $("#fnav").innerHTML = links.map(([h, k]) => `<a href="${h}">${T("nav." + k)}</a>`).join("");
+  const links = [["#home", "home"], ["#services", "services"], ["portfolio.html", "portfolio"], ...(storeUrl ? [[storeUrl, "store"]] : []), ["#about", "about"], ["#contact", "contact"]];
+  $("#nav").innerHTML = links.map(([h, k]) => `<a href="${esc(h)}">${T("nav." + k)}</a>`).join("");
+  $("#fnav").innerHTML = links.map(([h, k]) => `<a href="${esc(h)}">${T("nav." + k)}</a>`).join("");
   $$("[data-aria]").forEach(e => e.setAttribute("aria-label", T(e.dataset.aria)));
+  const heroActs = $(".hero .acts");   // زر المتجر في أعلى الصفحة (يُنشأ فقط عند ضبط storeUrl)
+  if (storeUrl && heroActs) { let sb = $("#store-btn"); if (!sb) { sb = document.createElement("a"); sb.id = "store-btn"; sb.className = "btn"; heroActs.append(sb); } sb.href = storeUrl; sb.textContent = T("btn.store"); }
   $$("[data-alt]").forEach(e => e.alt = T(e.dataset.alt));
   syncSeo();
   $("#langs").innerHTML = D.language.available.map(l => `<button type="button" data-l="${l}" aria-pressed="${l === lang}">${{ ar: "عربي", fr: "FR", en: "EN" }[l]}</button>`).join("");
@@ -172,7 +176,7 @@ const menu = $("#menu"), nav = $("#nav");
 const closeMenu = () => { nav.classList.remove("open"); menu.setAttribute("aria-expanded", "false"); document.body.classList.remove("navopen"); };
 menu.onclick = () => { const o = nav.classList.toggle("open"); menu.setAttribute("aria-expanded", String(o)); document.body.classList.toggle("navopen", o); };
 addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
-matchMedia("(min-width: 861px)").addEventListener("change", closeMenu);
+matchMedia("(min-width: 1101px)").addEventListener("change", closeMenu);
 
 const bar = $("#bar");
 const onScroll = () => bar.classList.toggle("scrolled", scrollY > 24);

@@ -14,6 +14,8 @@ const L = o => typeof o === "string" ? o : (o && (o[lang] || o.en)) || "";
 const LA = o => (o && (o[lang] || o.en)) || [];
 const T = k => L(D.t[k]);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+// رابط المتجر: يُستعمل فقط إن كان https صالحاً في data.js → storeUrl
+const storeUrl = /^https:\/\/[^\s"'<>]+$/i.test(D.storeUrl || "") ? D.storeUrl.trim() : "";
 const wa = msg => `https://wa.me/${D.whatsapp}?text=${encodeURIComponent(msg || L(D.whatsappMessage))}`;
 const social = id => D.socials.find(x => x.id === id);
 const ico = (id, n = 20, fill) => { const s = social(id); return s ? `<svg viewBox="0 0 24 24" width="${n}" height="${n}" fill="${fill || s.color}" aria-hidden="true">${s.icon}</svg>` : ""; };
@@ -45,8 +47,8 @@ function render() {
   $$("[data-ico]").forEach(e => e.innerHTML = ico(e.dataset.ico, 20));
 
   const cur = document.body.dataset.nav;
-  const links = [["index.html#home", "home"], ["index.html#services", "services"], ["portfolio.html", "portfolio"], ["index.html#about", "about"], ["index.html#contact", "contact"]];
-  const nav = ([h2, k]) => `<a href="${B}${h2}"${k === cur ? ' aria-current="page"' : ""}>${T("nav." + k)}</a>`;
+  const links = [["index.html#home", "home"], ["index.html#services", "services"], ["portfolio.html", "portfolio"], ...(storeUrl ? [[storeUrl, "store"]] : []), ["index.html#about", "about"], ["index.html#contact", "contact"]];
+  const nav = ([h2, k]) => `<a href="${/^https:/i.test(h2) ? esc(h2) : B + h2}"${k === cur ? ' aria-current="page"' : ""}>${T("nav." + k)}</a>`;
   $("#nav").innerHTML = links.map(nav).join("");
   $("#fnav").innerHTML = links.map(nav).join("");
   $("#langs").innerHTML = D.language.available.map(l => `<button type="button" data-l="${l}" aria-pressed="${l === lang}">${{ ar: "عربي", fr: "FR", en: "EN" }[l]}</button>`).join("");
@@ -73,7 +75,7 @@ document.addEventListener("click", e => {
 $("#theme").onclick = () => { theme = theme === "dark" ? "light" : "dark"; store("theme", theme); document.documentElement.dataset.theme = theme; };
 menu.onclick = () => { const o = nav.classList.toggle("open"); menu.setAttribute("aria-expanded", String(o)); document.body.classList.toggle("navopen", o); };
 addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
-matchMedia("(min-width: 861px)").addEventListener("change", closeMenu);
+matchMedia("(min-width: 1101px)").addEventListener("change", closeMenu);
 const bar = $("#bar"), onScroll = () => bar.classList.toggle("scrolled", scrollY > 24);
 addEventListener("scroll", onScroll, { passive: true }); onScroll();
 

@@ -11,6 +11,9 @@ const TRIPLE_A = {
   whatsappMessage: { ar: "مرحبا Triple A، عندي مشروع", fr: "Bonjour Triple A, j'ai un projet", en: "Hello Triple A, I have a project" },
   email: "triple.a.code@gmail.com",
   website: "https://triple-a-a-a.netlify.app",
+  // رابط المتجر (Triple A Store). ضع هنا الرابط الكامل بعد نشر المتجر، مثال: "https://your-store.netlify.app"
+  // اتركه فارغاً = لا يظهر أي رابط للمتجر (لا رابط مكسور). يظهر في القائمة والفوتر وزر في أعلى الصفحة الرئيسية.
+  storeUrl: "https://triple-a-store.netlify.app",
   theme: { default: "dark" },
   language: { default: "ar", available: ["ar", "fr", "en"] },
   contactForm: { enabled: true },
@@ -23,9 +26,11 @@ const TRIPLE_A = {
     "nav.services": { ar: "الخدمات", fr: "SERVICES", en: "SERVICES" },
     "nav.about": { ar: "من نحن", fr: "À PROPOS", en: "ABOUT" },
     "nav.contact": { ar: "تواصل", fr: "CONTACT", en: "CONTACT" },
+    "nav.store": { ar: "المتجر", fr: "BOUTIQUE", en: "STORE" },
     "btn.start": { ar: "ابدأ مشروعك", fr: "DÉMARRER UN PROJET", en: "START A PROJECT" },
     "btn.explore": { ar: "اكتشف أعمالنا", fr: "VOIR NOS RÉALISATIONS", en: "EXPLORE OUR WORK" },
     "btn.wa": { ar: "راسلنا على واتساب", fr: "ÉCRIRE SUR WHATSAPP", en: "WHATSAPP US" },
+    "btn.store": { ar: "زُر المتجر", fr: "VISITER LA BOUTIQUE", en: "VISIT THE STORE" },
     "btn.quote": { ar: "اطلب عرض سعر", fr: "DEMANDER UN DEVIS", en: "GET A QUOTE" },
     "btn.order": { ar: "اطلب الآن", fr: "COMMANDER", en: "ORDER THIS" },
     "btn.save": { ar: "حفظ جهة الاتصال", fr: "Enregistrer le contact", en: "Save contact" },

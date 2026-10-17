@@ -24,6 +24,7 @@ Vanilla HTML/CSS/JS (no build step, no framework). Open `index.html` or drop the
 - Contact form opens WhatsApp with the request pre-filled; "Or send by email" opens a pre-filled mailto. No backend.
 - Languages: Arabic (RTL) / French / English. All texts live in `data.js` → `t`, `seo`, `categories`, `projects`.
 - Fonts: Unbounded + IBM Plex Sans Arabic via Google Fonts (system fallbacks included).
+- Store link: set `storeUrl: "https://your-store.netlify.app"` in `data.js`. It then appears in the header, footer, mobile menu and as a button in the hero (all pages, 3 languages). Empty = no link shown.
 - Prices: set `from: "300"` on any product/package to show "From 300 MAD". Empty = "Custom quote".
 - YouTube: add the real URL in `data.js` → `socials` → youtube, then set `enabled: true`.
 
