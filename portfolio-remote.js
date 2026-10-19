@@ -8,7 +8,7 @@
 (() => {
   "use strict";
   const C = window.TA_SUPABASE || {};
-  const url = String(C.url || "").trim().replace(/\/$/, ""), key = String(C.anonKey || "").trim();
+  const url = String(C.url || "").trim().replace(/\/(rest|auth|storage)\/v1.*$/i, "").replace(/\/+$/, ""), key = String(C.anonKey || "").trim();
   const LANGS = ["ar", "fr", "en"], BUCKET = "product-images", TIMEOUT = 8000;
 
   // لا نعمل أبداً بمفتاح سري: نرفض sb_secret_ ونرفض JWT دوره service_role
@@ -20,6 +20,7 @@
   }
   const enabled = /^https:\/\/[a-z0-9.-]+$/i.test(url) && key.length > 20 && /^[\w.-]+$/.test(key) && keyIsSafe(key);
   if (!enabled && (url || key)) console.warn("[portfolio] إعداد Supabase غير صالح أو مفتاح غير عام — يُستعمل data.js فقط.");
+  else if (!enabled) console.warn("[portfolio] supabase-config.js فارغ — يُعرض محتوى data.js فقط ولن يظهر ما تضيفه من لوحة الأدمن. املأ url و anonKey.");
 
   /* ---------- تنقية وتحويل صفوف القاعدة إلى شكل مشاريع data.js ---------- */
   const str = (v, max = 5000) => typeof v === "string" ? v.slice(0, max) : "";
@@ -71,7 +72,7 @@
   const R = window.TA_REMOTE = { enabled, state: enabled ? "loading" : "off", data: null, promise: null, map };
   if (!enabled) return;
   const ctl = typeof AbortController === "function" ? new AbortController() : null, timer = setTimeout(() => ctl && ctl.abort(), TIMEOUT);
-  const get = q => fetch(`${url}/rest/v1/${q}`, { headers: { apikey: key, Authorization: `Bearer ${key}`, Accept: "application/json" }, signal: ctl ? ctl.signal : undefined })
+  const get = q => fetch(`${url}/rest/v1/${q}`, { headers: { apikey: key, Authorization: `Bearer ${key}`, Accept: "application/json" }, cache: "no-store", signal: ctl ? ctl.signal : undefined })
     .then(res => { if (!res.ok) throw new Error("HTTP " + res.status); return res.json(); });
   R.promise = Promise.all([
     get("portfolio_projects?select=*&is_published=eq.true&order=sort_order.asc,created_at.desc&limit=500"),
@@ -80,6 +81,6 @@
   ]).then(([p, c, k]) => {
     if (!Array.isArray(p) || !Array.isArray(c) || !Array.isArray(k)) throw new Error("bad response");
     R.data = map(p, c, k); R.state = "ok";
-  }).catch(e => { R.state = "failed"; console.warn("[portfolio] تعذّر تحميل المشاريع من قاعدة البيانات — يُعرض المحتوى المحلي:", e && e.message); })
+  }).catch(e => { R.state = "failed"; R.error = String(e && e.message || e); console.warn("[portfolio] تعذّر تحميل المشاريع من قاعدة البيانات — يُعرض المحتوى المحلي:", e && e.message); })
     .finally(() => clearTimeout(timer));
 })();

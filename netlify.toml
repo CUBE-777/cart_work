@@ -1,0 +1,21 @@
+# إعدادات Netlify لموقع Triple A Studio
+# الهدف: عدم تخزين ملفات الإعداد/الجلب في الكاش حتى تظهر تعديلاتك فور النشر.
+[[headers]]
+  for = "/supabase-config.js"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"
+
+[[headers]]
+  for = "/portfolio-remote.js"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"
+
+[[headers]]
+  for = "/portfolio.js"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"
+
+[[headers]]
+  for = "/data.js"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"
