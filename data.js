@@ -322,53 +322,6 @@ const TRIPLE_A = {
   //  المشاريع. (فارغة عمداً — لا مشاريع وهمية. أضف مشاريعك الحقيقية هنا.)
   // ----------------------------------------------------------------------
   projects: [
-    {
-      id: "triple-a-business-card",
-
-      collection: "business-cards",
-
-      type: "business-card",
-
-      title: {
-        ar: "بطاقة أعمال Triple A",
-        fr: "Carte de visite Triple A",
-        en: "Triple A Business Card"
-      },
-
-      description: {
-        ar: "تصميم بطاقة أعمال احترافية لفريق Triple A.",
-        fr: "Conception d'une carte de visite professionnelle pour Triple A.",
-        en: "Professional business card design for Triple A."
-      },
-
-      category: "graphic-design",
-
-      cover: "assets/portfolio/Graphic Design/Business Cards/triple-a-business-card/cover.webp",
-
-      ratio: "9/5",   // نسبة الغلاف الحقيقية: تحدد فقط كيف تُعرض الصورة داخل الإطار (اختياري)
-
-      coverSize: { w: 1134, h: 661 },
-
-      gallery: [
-        { src: "assets/portfolio/Graphic Design/Business Cards/triple-a-business-card/front 1.webp", w: 1134, h: 661 },
-        { src: "assets/portfolio/Graphic Design/Business Cards/triple-a-business-card/back1.webp", w: 1134, h: 661 },
-        { src: "assets/portfolio/Graphic Design/Business Cards/triple-a-business-card/reel.webp", w: 1134, h: 661 }
-      ],
-
-      // PDF اختياري (يظهر كزر "View Full PDF" داخل صفحة المشروع)
-      pdf: "assets/portfolio/Graphic Design/Business Cards/triple-a-business-card/MY ULTRA CART V2.4.pdf",
-
-      featured: false,
-
-      links: {
-        live: "",
-        github: "",
-        behance: "",
-        instagram: "",
-        video: "",
-        whatsapp: ""
-      }
-    }
     /* ================= قالب مشروع كامل — انسخه كما هو داخل projects ثم عدّله =================
     {
       // معرّف المشروع = اسم المجلد = الرابط. حروف إنجليزية صغيرة وأرقام وشرطات فقط. لا تغيّره لاحقاً.

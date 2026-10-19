@@ -346,6 +346,11 @@
       if (lr) lr.innerHTML = `<p class="pf-status" role="status">${T("cs.loading")}</p>`;
       return;
     }
+    if (REMOTE && REMOTE.state === "failed" && !all.length && page !== "project") {   // فشل الاتصال ولا احتياطي محلي: لا نعرض "لا مشاريع" المضلِّلة
+      const r0 = $("[data-portfolio]"), lg = document.documentElement.lang;
+      if (r0) r0.innerHTML = `<p class="pf-status" role="status">${lg === "ar" ? "تعذّر تحميل المشاريع حالياً. أعد تحميل الصفحة بعد قليل." : lg === "fr" ? "Impossible de charger les projets pour le moment. Réessayez dans un instant." : "Couldn't load the projects right now. Please reload in a moment."}</p>`;
+      return;
+    }
     const f = firstRender; firstRender = false;
     if (page === "project") { const r = $("#project-root"); if (r) renderProject(r, f); return; }
     const root = $("[data-portfolio]"); if (!root) return;

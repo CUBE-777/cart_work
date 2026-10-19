@@ -1,4 +1,9 @@
 # إعدادات Netlify لموقع Triple A Studio
+[build]
+  publish = "."
+  # يكتب supabase-config.js من متغيرات البيئة (SUPABASE_URL / SUPABASE_ANON_KEY) إن وُجدت
+  command = "node scripts/generate-config.mjs"
+
 # الهدف: عدم تخزين ملفات الإعداد/الجلب في الكاش حتى تظهر تعديلاتك فور النشر.
 [[headers]]
   for = "/supabase-config.js"

@@ -71,16 +71,21 @@
   /* ---------- الجلب ---------- */
   const R = window.TA_REMOTE = { enabled, state: enabled ? "loading" : "off", data: null, promise: null, map };
   if (!enabled) return;
-  const ctl = typeof AbortController === "function" ? new AbortController() : null, timer = setTimeout(() => ctl && ctl.abort(), TIMEOUT);
-  const get = q => fetch(`${url}/rest/v1/${q}`, { headers: { apikey: key, Authorization: `Bearer ${key}`, Accept: "application/json" }, cache: "no-store", signal: ctl ? ctl.signal : undefined })
-    .then(res => { if (!res.ok) throw new Error("HTTP " + res.status); return res.json(); });
-  R.promise = Promise.all([
+  // كل محاولة لها مهلتها الخاصة، وتُعاد المحاولة مرة واحدة عند أي فشل عابر في الشبكة
+  const get = q => {
+    const ctl = typeof AbortController === "function" ? new AbortController() : null, timer = setTimeout(() => ctl && ctl.abort(), TIMEOUT);
+    return fetch(`${url}/rest/v1/${q}`, { headers: { apikey: key, Authorization: `Bearer ${key}`, Accept: "application/json" }, cache: "no-store", signal: ctl ? ctl.signal : undefined })
+      .then(res => { if (!res.ok) throw new Error("HTTP " + res.status + (res.status === 404 ? " (الجداول غير موجودة؟ شغّل 006 و007 في Supabase)" : res.status === 401 || res.status === 403 ? " (المفتاح غير صالح أو السياسات ناقصة)" : "")); return res.json(); })
+      .finally(() => clearTimeout(timer));
+  };
+  const load = () => Promise.all([
     get("portfolio_projects?select=*&is_published=eq.true&order=sort_order.asc,created_at.desc&limit=500"),
     get("portfolio_categories?select=*&is_active=eq.true&order=sort_order.asc"),
     get("portfolio_collections?select=*&is_active=eq.true&order=sort_order.asc")
-  ]).then(([p, c, k]) => {
-    if (!Array.isArray(p) || !Array.isArray(c) || !Array.isArray(k)) throw new Error("bad response");
-    R.data = map(p, c, k); R.state = "ok";
-  }).catch(e => { R.state = "failed"; R.error = String(e && e.message || e); console.warn("[portfolio] تعذّر تحميل المشاريع من قاعدة البيانات — يُعرض المحتوى المحلي:", e && e.message); })
-    .finally(() => clearTimeout(timer));
+  ]);
+  R.promise = load().catch(() => new Promise(r => setTimeout(r, 800)).then(load))
+    .then(([p, c, k]) => {
+      if (!Array.isArray(p) || !Array.isArray(c) || !Array.isArray(k)) throw new Error("bad response");
+      R.data = map(p, c, k); R.state = "ok";
+    }).catch(e => { R.state = "failed"; R.error = String(e && e.message || e); console.warn("[portfolio] تعذّر تحميل المشاريع من قاعدة البيانات:", R.error); });
 })();
